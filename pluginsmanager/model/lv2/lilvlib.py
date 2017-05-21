@@ -112,13 +112,13 @@ def get_category(nodes):
 
     def fill_in_lv2_category(node):
         category = node.as_string().replace("http://lv2plug.in/ns/lv2core#","")
-        if category in lv2_category_indexes.keys():
+        if category in list(lv2_category_indexes.keys()):
             return lv2_category_indexes[category]
         return []
 
     def fill_in_mod_category(node):
         category = node.as_string().replace("http://moddevices.com/ns/mod#","")
-        if category in mod_category_indexes.keys():
+        if category in list(mod_category_indexes.keys()):
             return mod_category_indexes[category]
         return []
 
@@ -178,7 +178,7 @@ def get_port_unit(miniuri):
       'degree': ["degrees", "%f deg", "deg"],
       'midiNote': ["MIDI note", "MIDI note %d", "note"],
   }
-  if miniuri in units.keys():
+  if miniuri in list(units.keys()):
       return units[miniuri]
   return ("","","")
 
@@ -1320,7 +1320,7 @@ def get_plugin_info(world, plugin, useAbsolutePath = True):
         types.remove("Input" if isInput else "Output")
 
         for typ in [typl.lower() for typl in types]:
-            if typ not in ports.keys():
+            if typ not in list(ports.keys()):
                 ports[typ] = { 'input': [], 'output': [] }
             ports[typ]["input" if isInput else "output"].append(info)
 

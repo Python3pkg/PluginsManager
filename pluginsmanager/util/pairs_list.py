@@ -32,7 +32,7 @@ class PairsList(object):
         hash_elements_a = self._generate_hash(list_a)
         hash_elements_b = self._generate_hash(list_b)
 
-        keys = hash_elements_a.keys() | hash_elements_b.keys()
+        keys = list(hash_elements_a.keys()) | list(hash_elements_b.keys())
 
         # Pairs
         for key in keys:

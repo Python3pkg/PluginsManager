@@ -111,4 +111,4 @@ class BankTest(unittest.TestCase):
 
         bank.append(pedalboard)
 
-        print(json.dumps(bank.json, sort_keys=True, indent=2))
+        print((json.dumps(bank.json, sort_keys=True, indent=2)))

@@ -67,7 +67,7 @@ class Lv2EffectBuilder(object):
 
     @property
     def plugins(self):
-        return self._plugins.keys()
+        return list(self._plugins.keys())
 
     def build(self, lv2_uri):
         """
@@ -136,13 +136,13 @@ class Lv2EffectBuilder(object):
 
         :return list: lv2 audio plugins metadata
         """
-        import lilvlib
+        from . import lilvlib
 
         return lilvlib.get_plugin_info_helper('')
 
 if __name__ == '__main__':
     builder = Lv2EffectBuilder()
-    print('Total plugins before reload:', len(builder.plugins))
+    print(('Total plugins before reload:', len(builder.plugins)))
 
     builder.reload(builder.lv2_plugins_data())
-    print('Total plugins after reload:', len(builder.plugins))
+    print(('Total plugins after reload:', len(builder.plugins)))
